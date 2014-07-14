@@ -1,0 +1,162 @@
+// Grid Break Points
+// $mobile: em(420);
+// $tablet: em(760);
+// $desktop: em(960);
+// $large-desktop: em(1400);
+
+
+// Main Grid from desktop up
+///////////////////////////////////////////////////////////////////////////////
+
+.row {
+	@include outer-container;
+	  margin-bottom: 30px;
+}
+
+.col-one {
+  @include span-columns(1);
+}
+
+.col-two {
+  @include span-columns(2);
+}
+
+.col-three {
+  @include span-columns(3);
+}
+
+.col-four {
+  @include span-columns(4);
+}
+
+.col-five {
+  @include span-columns(5);
+}
+
+.col-six {
+  @include span-columns(6);
+}
+
+.col-seven {
+  @include span-columns(7);
+}
+
+.col-eight {
+  @include span-columns(8);
+}
+
+.col-nine {
+  @include span-columns(9);
+}
+
+.col-ten {
+  @include span-columns(10);
+}
+
+.col-eleven {
+  @include span-columns(11);
+}
+
+.col-twelve {
+  @include span-columns(12);
+}
+
+[class*='col-'] {
+
+  &.pull-right {
+    @include omega;
+  }
+
+  // background: rgba(0,0,0,0.2);
+  // height: 200px;
+
+}
+
+// Large Desktop
+///////////////////////////////////////////////////////////////////////////////
+
+@include media($large-up) {
+	[class*='col-'] { 
+		// background: green;
+	}
+}
+
+// Tablet
+///////////////////////////////////////////////////////////////////////////////
+
+@include media($tablet-down) {
+	[class*='col-'] { 
+		// background: red;
+	}
+	.col-six {
+  		@include span-columns(8);
+	}
+
+	.col-three, .col-four {
+  		@include span-columns(4);
+  		margin-bottom: em(30);
+  		&:nth-child(2n+2) {
+  			float: right;
+  			margin-right: em(0);
+  		}
+	}
+
+	.col-two {
+  		@include span-columns(2);
+  			&:nth-child(4) {
+  			float: right;
+  			margin-right: em(0);
+  		}
+	}
+
+	.col-one {
+		@include span-columns(2);
+			&:nth-child(4) {
+			float: right;
+			margin-right: em(0);
+		}
+	}
+
+}
+
+// Mobile
+///////////////////////////////////////////////////////////////////////////////
+
+@include media($mobile-down) {
+	[class*='col-'] { 
+		// background: blue;
+	}
+
+	.col-six, .col-four {
+  		@include span-columns(4);
+	}
+
+	.col-three{
+  		@include span-columns(2);
+	}
+	.col-two, .col-one{
+  		@include span-columns(1);
+	}
+
+}
+
+
+#content-primary section:last-of-type {
+    padding-bottom: 140px; 
+     @include media($tablet-down) {
+    padding-bottom: 40px; 
+  }
+  }
+
+.designers section:last-of-type {
+  padding-bottom: em(20) !important;
+}
+
+section#slider {
+width: 100% !important;
+}
+
+
+
+
+

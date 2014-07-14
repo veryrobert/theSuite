@@ -8,7 +8,12 @@ $header-font-family: $base-font-family;
 
 // Sizes
 ///////////////////////////////////////////////////////////////////////////////
-$base-font-size: 1em;
+
+
+$base-font-size: em(16);
+
+
+
 $base-line-height: $base-font-size * 1.5;
 $base-border-radius: em(3);
 
@@ -27,8 +32,8 @@ $light-green: #E6EFC2;
 $base-body-color: white;
 
 //  Font Colors
-$base-font-color: $dark-gray;
-$base-accent-color: $blue;
+$base-font-color: #000;
+$base-accent-color: #000;
 
 //  Text Link Colors
 $base-link-color: $base-accent-color;
@@ -54,3 +59,11 @@ $form-font-family: $base-font-family;
 
 // Buttons
 $button-style: simple;
+
+
+
+
+
+
+
+

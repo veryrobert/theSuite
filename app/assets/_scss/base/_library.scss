@@ -1,0 +1,529 @@
+.sprite-1 {
+  background-image: url(../img/sprite.png);
+  background-image: url(../img/sprite.svg);
+}
+
+body {
+  // background: yellow;
+  // @include outer-container;
+  background: #000;
+  @include media($tablet-down) {
+    // background: blue;
+  }
+
+  @include media($mobile-down) {
+    // background: yellow;
+  }
+
+  @include media($desktop-up) {
+    // background: green;
+  }
+
+  @include media($large-up) {
+    // background: yellow;
+  }
+
+  overflow: scroll;
+  // height: 2000px;
+}
+
+#slider {
+  background: black;
+  width: 100% !important;
+  @include fill-parent;
+}
+
+#ghost {
+  float: left;
+  position: relative;
+  background: white;
+}
+
+.content-wrap {
+  margin: em(30) em(0);
+}
+
+#menu {
+  position: fixed;
+  right: 0px;
+  background: #000;
+  width: 300px;
+  top: 0px;
+  bottom: 0;
+  padding: em(29);
+  color: white;
+  @include media($tablet-down) {
+    width: 230px;
+  }
+
+  ul li {
+    position: relative;
+    opacity: 0;
+    @extend h6;
+    font-size: $base-font-size * 0.7;
+    // 16 * 2.25 = 36px
+    padding: em(12) 0px;
+    @include transition(all 0.9s $ease-in-out-cubic);
+  }
+  &.active {
+    ul li {
+      opacity: 1;
+      // @include transition (all 0.3s $ease-out-cubic);
+   
+    }
+  }
+  ul.social {
+    margin-top: em(30);
+  }
+  ul.social li {
+    display: inline;
+  }
+}
+
+#menu-close {
+  z-index: 22222;
+  position: absolute;
+  right: em(20);
+}
+
+header {
+  width: 100%;
+  background: white;
+  height: em(75);
+  margin-bottom: em(50);
+  // background: aqua;
+  padding: em(35) 0;
+  > div {
+    @include outer-container;
+  }
+}
+
+.not-home {
+  header {
+    position: fixed;
+    z-index: 9999;
+    height: em(85);
+    // background: yellow;
+ 
+  }
+  #ghost {
+    top: em(125);
+  }
+}
+
+// Structure
+///////////////////////////////////////////////////////////////////////////////
+
+.col-six > .inside-three {
+  @include span-columns(3 of 6);
+  &:nth-child(2n+2) {
+    float: left;
+    margin-right: 0px;
+  }
+  @include media($mobile-down) {
+    @include span-columns(4 of 4);
+  }
+}
+
+// Content-primary > section > article
+#content-primary {
+  section {
+    // @extend .row;
+ 
+  }
+}
+
+#content-primary > section {
+  > h6 {
+    margin-bottom: em(30);
+  }
+}
+
+// masonry
+///////////////////////////////////////////////////////////////////////////////
+
+.masonry {
+  // background: #ccc;
+}
+
+.masonry .item {
+  @include media($tablet-down) {
+    width: 48.85%;
+    height: 504px;
+    margin-bottom: em(24);
+  }
+
+  @include media($mobile-down) {
+    width: 100%;
+    height: 504px;
+    margin-bottom: em(38);
+  }
+
+  @include media($desktop-up) {
+    width: 23.27%;
+    height: 384px;
+    margin-bottom: em(24);
+  }
+
+  @include media($large-up) {
+    width: 23.27%;
+    height: 560px;
+    margin-bottom: em(38);
+  }
+}
+
+.masonry .grid-sizer {
+  width: 23.27%;
+}
+
+.masonry .gutter-sizer {
+  width: 2.3%;
+}
+
+.item.w2 {
+  @include media($tablet-down) {
+    width: 100%;
+    height: 504px;
+    margin-bottom: em(24);
+  }
+
+  @include media($mobile-down) {
+    width: 100%;
+    height: 240px;
+  }
+
+  @include media($desktop-up) {
+    width: 48.85%;
+  }
+
+  @include media($large-up) {
+    width: 48.85%;
+  }
+}
+
+.item > div {
+  width: 100%;
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+}
+
+.item.h2 {
+  @include media($tablet-down) {
+    height: 240px;
+  }
+
+  @include media($desktop-up) {
+    height: 180px;
+  }
+
+  @include media($large-up) {
+    height: 260px;
+  }
+}
+
+.item {
+  position: relative;
+  background: #000;
+  @include transition(opacity 1s $ease-in-cubic);
+  > h6 {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    color: #fff;
+    opacity: 0;
+    top: calc(50% - 10px);
+    // left: 50%;
+    letter-spacing: 2px;
+  }
+}
+
+.item > div, .item > h6 {
+  // opacity: 1;
+  @include transition(all 0.4s $ease-in-cubic);
+}
+
+.item:hover > div, .item:hover > h6 {
+  // background: #000;
+  @include transition(all 0.2s $ease-in-cubic);
+}
+
+.item.active {
+  > div {
+    opacity: 0;
+  }
+  > h6 {
+    opacity: 1;
+  }
+}
+
+footer {
+  > ul li {
+    display: inline;
+    @include media($tablet-down) {
+      display: block;
+      float: none;
+    }
+
+    @include media($mobile-down) {
+      display: block;
+      float: none;
+    }
+  }
+  #top {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+  }
+}
+
+// social icons
+
+#menu-close a {
+  @include sprite(sprite-1, -18px, -82px, 30px, 30px);
+  @include transition(opacity 0.3s $ease-in-cubic);
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+#top {
+  cursor: pointer;
+  @include sprite(sprite-1, -37px, -82px, 30px, 30px);
+  // @include transition(opacity 0.3s $ease-in-cubic);
+}
+
+#menu {
+  ul.social {
+    margin-left: -8px;
+  }
+  li.twitter a {
+    @include sprite(sprite-1, -288px, -18px, 30px, 30px);
+  }
+  li.facebook a {
+    @include sprite(sprite-1, -324px, -16px, 30px, 30px);
+  }
+  li.pinterest a {
+    @include sprite(sprite-1, -357px, -16px, 30px, 30px);
+  }
+}
+
+footer {
+  font-size: em(13);
+  font-family: $serif;
+  ul {
+    li.twitter, li.facebook {
+      @include span-columns(1 of 6);
+    }
+    li.mail {
+      @include span-columns(2 of 6);
+    }
+    li.number {
+      @include span-columns(1 of 6);
+    }
+    li.twitter, li.facebook, li.mail, li.number {
+      width: auto;
+    }
+  }
+}
+
+#intro {
+  // background: green;
+  position: fixed;
+  z-index: 0000;
+  left: calc(50vw - 110px);
+  background: aqua;
+  height: 0px;
+  padding: 0px !important;
+  // display: none;
+}
+
+#content-primary {
+  // @include outer-container;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  z-index: 99999;
+  @include transition(all 0.5s $ease-out-quad);
+  &.active {
+    @include media($tablet-down) {
+      left: -230px;
+    }
+
+    left: -300px;
+  }
+}
+
+#intro .logo {
+  @include sprite(sprite-1, 0px, 0px, 70px, 240px);
+  // margin: 0 auto;
+  display: block;
+  position: relative;
+  // left: 50%;
+  // left: -130px;
+  margin-top: 20vh;
+}
+
+h2.logo {
+  @include sprite(sprite-1, -440px, -18px, 36px, 36px);
+  display: block;
+  // position: relative;
+  margin-top: -7px;
+}
+
+.designers p.large {
+  margin-bottom: em(20);
+}
+
+// Designer Page
+///////////////////////////////////////////////////////////////////////////////
+
+.images {
+  position: relative;
+  over-flow: hidden;
+  margin-top: -10px;
+  margin-bottom: 30px;
+  height: 700px;
+}
+
+.images > div {
+  position: absolute;
+  height: 700px;
+  height: 70vh;
+  @include span-columns(4 of 6);
+  @include shift(1);
+  margin-bottom: 10px;
+  opacity: 0;
+  @include transition(opacity 0.5s $ease-in-out-cubic);
+  img {
+    width: 100%;
+  }
+  &.active {
+    opacity: 1;
+    @include transition(opacity 0.5s $ease-in-out-cubic);
+  }
+}
+
+.images {
+  .photo1 {
+    background: green;
+  }
+  .photo2 {
+    background: blue;
+  }
+  .photo3 {
+    background: pink;
+  }
+  .photo4 {
+    background: grey;
+  }
+  .photo5 {
+    background: orange;
+  }
+  .photo6 {
+    background: red;
+  }
+}
+
+// Single Designers Page
+///////////////////////////////////////////////////////////////////////////////
+
+.gallery {
+  background: black;
+  height: em(800);
+  margin-bottom: em(30);
+  > div {
+    height: em(750);
+    @include span-columns(12 of 12);
+    @include shift(0);
+  }
+}
+
+.single {
+  article > p.small {
+    margin-top: em(30);
+    @include columns(2);
+    @include column-gap(40px);
+    @include media($mobile-down) {
+      @include columns(1);
+    }
+  }
+  .appointment {
+    margin-top: em(50);
+    margin-bottom: em(20);
+    font-size: $base-font-size * 0.9;
+  }
+  article {
+    ul.social {
+      margin-left: -8px;
+    }
+    li {
+      display: inline;
+    }
+    li.twitter a {
+      @include sprite(sprite-1, -288px, -37px, 36px, 36px);
+    }
+    li.facebook a {
+      @include sprite(sprite-1, -324px, -37px, 36px, 36px);
+    }
+    li.pinterest a {
+      @include sprite(sprite-1, -357px, -37px, 36px, 36px);
+    }
+  }
+}
+
+.rsNav {
+  width: auto;
+  float: right;
+}
+
+div.rsNav.rsBullets {
+  float: right;
+  height: 20px;
+  margin-top: 30px;
+}
+
+.rsBullet {
+  cursor: pointer;
+  background: #ccc;
+  height: 14px;
+  width: 14px;
+  border: solid 4px #fff;
+  float: left;
+  margin-left: 2px;
+  @include border-top-radius(10px);
+  @include border-bottom-radius(10px);
+  @include border-left-radius(10px);
+  @include border-right-radius(10px);
+}
+
+.rsNavSelected {
+  background: #000;
+}
+
+.about {
+
+  p.large {
+    margin-top: 0.9em;
+    padding-right: 20px;
+
+  }
+
+  .small > p {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+}
+
+

@@ -1,14 +1,24 @@
 // Neat Overrides
 ///////////////////////////////////////////////////////////////////////////////
 // $column: 90px;
-// $gutter: 30px;
-// $grid-columns: 12;
-// $max-width: em(1088);
+// $gutter: em(20);
+// $grid-columns: 16;
+$max-width: 90%;
+
+$visual-grid: true;
+$visual-grid-color: #E6F6FF;
+$visual-grid-opacity: 0.4;
 
 // Neat Breakpoints
 ///////////////////////////////////////////////////////////////////////////////
-$medium-screen: em(640);
-$large-screen: em(860);
+$mobile: em(420);
+$tablet: em(960);
+$desktop: em(960);
+$large-desktop: em(1400);
 
-$medium-screen-up: new-breakpoint(min-width $medium-screen 4);
-$large-screen-up: new-breakpoint(min-width $large-screen 8);
+$tablet-down: new-breakpoint(max-width $tablet 8);
+$desktop-up: new-breakpoint(min-width $desktop 12);
+$large-up: new-breakpoint(min-width $large-desktop 12);
+$mobile-down: new-breakpoint(max-width $mobile 4);
+
+

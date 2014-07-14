@@ -17,6 +17,8 @@
 
 /* Base
  * -----------------------------------------------------------------------------*/
+
+@import "base/grid";
 @import "base/variables";
 @import "base/extends/base";
 @import "base/mixins/base";
@@ -36,6 +38,9 @@
 /* Components
  * -----------------------------------------------------------------------------*/
 // @import "component/modal";
+@import "component/slider";
+@import "component/loading";
+@import "component/black";
 
 
 

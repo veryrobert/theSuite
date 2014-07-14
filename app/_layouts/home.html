@@ -16,7 +16,7 @@
     <!-- endbuild -->
   </head>
 
-  <body class="not-home">
+  <body class="home">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -24,29 +24,25 @@
  
 {% include nav.html %}
 
-<div id="content-primary" class="content-primary">
 
 
 
-   <header>
-      <div>
-        <a href="/"><h2 class="logo col-one"></h2></a>
-        <div class="col-six pull-right">
-          <h2 class="title pull-left">New Collection</h2>
-          <h2><a class="pull-right" href="#menu" id="menu-trigger">Menu</a></h2>
-        </div>
-      </div>
-   </header>
 
-    <div id="ghost">
+<div id="content-primary" class="content-primary home">
+
+<section id="intro">
+
+    <h1 class="logo">The Suite</h1>
+
+</section>
+ 
+  <div id="ghost">
     {{ content }}
+  
      {% include footer.html %}
 
-    </div>
-
   </div>
-
-
+</div>
     <!--[if lte IE 8]>
       {% include scripts-ie8.html %}
     <![endif]-->

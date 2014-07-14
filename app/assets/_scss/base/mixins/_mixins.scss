@@ -1,1 +1,14 @@
 @import 'flash';
+
+
+@mixin sprite($sprite-class, $x: 0, $y: 0, $h: 0, $w: 0) {
+  @extend .#{$sprite-class};
+  background-position: $x $y;
+  height: $h;
+  width: $w;
+  text-indent: -9999px;
+  display: inline-block;
+  overflow: hidden;
+  // background-repeat: no-repeat;
+}
+

@@ -1,0 +1,50 @@
+.loading {
+  // background: rgb(255, 255, 255);
+  background-color: black;
+  // height:50%;
+  width: 100%;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  position: fixed;
+ @include transition(all 1s $ease-in-quad); 
+
+  z-index: 999999
+}
+
+
+.loading .logo {
+  width:100px;
+  height:100px;
+  position:absolute;
+  top:50%;
+
+  left:50%;
+  margin:-60px 0 0 -30px;
+  // background: rgba(0, 0, 0, .8);
+  border-radius: 65px;
+  @include animation(pulse 1s infinite);
+
+  @include sprite(sprite-1, -36px, -185px, 65px, 65px);
+
+}
+			
+@keyframes pulse {
+  0% {opacity:0.5;}
+  50% {opacity:1;}
+  100% {opacity:0.5;}
+}
+
+@-webkit-keyframes pulse {
+  0% {opacity:0.5;}
+  50% {opacity:1;}
+  100% {opacity:0.5;}
+ }
+
+		
+.loading.hidden {
+  opacity:0;
+  visibility:hidden;
+
+ }

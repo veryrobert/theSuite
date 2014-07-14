@@ -1,6 +1,6 @@
 body {
-  color: $base-font-color;
-  font-family: $base-font-family;
+  color: #000;
+  font-family:gill-sans, $base-font-family;
   font-size: $base-font-size;
   -webkit-font-smoothing: antialiased;
   line-height: $base-line-height;
@@ -10,44 +10,53 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $header-font-family;
   line-height: 1.25em;
   margin: 0;
+  font-weight: normal;
+  letter-spacing: em(1.5);
+  text-transform: uppercase;
   text-rendering: optimizeLegibility; // Fix the character spacing for headings
 }
 
 h1 {
-  font-size: $base-font-size * 2.25; // 16 * 2.25 = 36px
+  font-size: $base-font-size * 0.75; // 16 * 2.25 = 36px
 }
 
 h2 {
-  font-size: $base-font-size * 2; // 16 * 2 = 32px
+  font-size: $base-font-size * 0.7; // 16 * 2 = 32px
 }
 
 h3 {
-  font-size: $base-font-size * 1.75; // 16 * 1.75 = 28px
+  font-size: $base-font-size * 0.75; // 16 * 1.75 = 28px
 }
 
 h4 {
-  font-size: $base-font-size * 1.5; // 16 * 1.5 = 24px
+  font-size: $base-font-size * 0.75; // 16 * 1.5 = 24px
 }
 
 h5 {
-  font-size: $base-font-size * 1.25; // 16 * 1.25 = 20px
+  font-size: $base-font-size * 0.75; // 16 * 1.25 = 20px
 }
 
 h6 {
-  font-size: $base-font-size;
+  font-size: $base-font-size * 0.75;
 }
 
 p {
-  margin: 0 0 ($base-line-height * .5);
+  margin: 0 0 ($base-line-height);
 }
 
 a {
   color: $base-link-color;
   text-decoration: none;
-  @include transition(color 0.1s linear);
+  // @include transition(color 0.1s linear);
+   border-bottom: solid 1px white;
+   padding-bottom: 2px;
+  @include transition(all 0.2s $ease-out-quad);
 
   &:hover {
     color: $hover-link-color;
+    border-bottom: solid 1px #000;
+    padding-bottom: 2px;
+    @include transition(all 0.6s $ease-out-quad);
   }
 
   &:active, &:focus {
@@ -102,3 +111,118 @@ cite {
     content: '\2014 \00A0';
   }
 }
+
+
+p {
+
+  font-family:  'EB Garamond', $serif;
+
+  &.large {
+      font-size: $base-font-size * 1.4; // 16 * 1.5
+      line-height: $base-font-size * 1.6;
+      padding-right: em(10);
+
+    @include media(max-width $large-desktop) {
+        font-size: $base-font-size * 1.2;
+    }
+
+    margin-bottom: em(24);
+
+  }
+
+    &.small {
+      font-size: $base-font-size; // 16 * 1.5
+      // line-height: $base-font-size;
+      padding-right: em(15);
+
+     @include media(max-width $large-desktop) {
+        font-size: $base-font-size * 0.9;
+    }
+
+    @include media($mobile-down) {
+     font-size: $base-font-size;
+    }
+
+  }
+
+}
+
+
+
+.small > p {
+  margin: em(18) 0 em(40) 0;
+  font-size: $base-font-size; // 16 * 1.5
+  // line-height: $base-font-size;
+  padding-right: em(15);
+
+   @include media(max-width $large-desktop) {
+      font-size: $base-font-size * 0.9;
+  }
+}
+
+
+#content-primary > section {
+
+  > h6 {
+    
+    margin-bottom: em(30);
+
+  }
+
+}
+
+
+.white {
+  color: white;
+}
+
+.caption, .italic, h3.caption.italic {
+  font-style: italic;
+}
+
+header {
+  h2 {
+    font-size: $base-font-size * 0.7; 
+    letter-spacing: 2px;
+  }
+}
+
+.serif {
+    font-size: $base-font-size * 1.4; // 16 * 1.5
+      line-height: $base-font-size * 1.4;
+  font-family:  'EB Garamond', $serif;
+  text-transform: none;
+  margin-bottom: 20px;
+  letter-spacing: 0px;
+
+}
+
+h2.title.serif {
+   font-size: $base-font-size * 4; // 16 * 1.5
+   margin-bottom: 0px;
+}
+
+h2.title.serif {
+   font-size: $base-font-size * 2.5; // 16 * 1.5
+}
+
+
+aside {
+
+  ul li {
+    @extend h2;
+    line-height: $base-font-size * 2.2;
+  }
+}
+
+.black {
+    a {
+      border-bottom: solid 1px #000;  
+      &:hover {
+        border-bottom: solid 1px #fff;
+      }
+    }
+}
+
+
+// 
