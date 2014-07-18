@@ -98,7 +98,7 @@
     a {
       padding-bottom: 1px;
       color: black;
-      border-bottom: solid 1px white;
+      border-bottom: solid 1px transparent;
       @include transition(border 0.2s $ease-out-quad);
     }
     a:hover {
@@ -113,12 +113,12 @@
   }
   header {
     position: relative;
-    background: black;
+    // background: black;
   }
   #content-primary {
-    background: black;
+    // background: black;
     #ghost {
-      background: black;
+      // background: black;
       top: 0;
     }
   }
@@ -196,4 +196,9 @@ aside li h2 {
 
 .post .title-info:first-of-type {
   padding-bottom: 30px;
+}
+
+
+body.black {
+  // background-color: black;
 }

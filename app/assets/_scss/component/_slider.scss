@@ -260,7 +260,7 @@ img.rsImg {
 
 // Slider styles
 
-      #full-width-slider {
+      #full-width-slider, #home-slider {
   width: 100%;
   color: #000;
 }
@@ -302,7 +302,7 @@ img.rsImg {
 @media screen and (min-width:960px) and (min-height:1000px) {
     .heroSlider .rsOverflow,
     .royalSlider.heroSlider {
-        height: 660px !important;
+        // height: 660px !important;
     }
 }
 @media screen and (min-width: 0px) and (max-width: 800px) {

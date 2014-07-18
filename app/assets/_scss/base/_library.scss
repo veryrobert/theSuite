@@ -1,12 +1,40 @@
-.sprite-1 {
+ .sprite-1 {
   background-image: url(../img/sprite.png);
   background-image: url(../img/sprite.svg);
+}
+
+
+html, body, #content-primary {
+  height: 100%;
+}
+
+
+#guts, .not-home #guts, .black #guts {
+  overflow: hidden;
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -50px; 
+}
+#guts:after {
+  content: "";
+  display: block;
+}
+
+footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+  height: 50px; 
+}
+
+footer {
+  // background: orange;
+  width: 90%;
+  margin: 0 auto;
 }
 
 body {
   // background: yellow;
   // @include outer-container;
-  background: #000;
+  // background: #000;
   @include media($tablet-down) {
     // background: blue;
   }
@@ -36,7 +64,7 @@ body {
 #ghost {
   float: left;
   position: relative;
-  background: white;
+  // background: white;
 }
 
 .content-wrap {
@@ -63,7 +91,7 @@ body {
     font-size: $base-font-size * 0.7;
     // 16 * 2.25 = 36px
     padding: em(12) 0px;
-    @include transition(all 0.9s $ease-in-out-cubic);
+    // @include transition(all 0.9s $ease-in-out-cubic);
   }
   &.active {
     ul li {
@@ -87,15 +115,27 @@ body {
 }
 
 header {
+      @include transition(all 0.5s $ease-out-quad);;
   width: 100%;
-  background: white;
+  // background: white;
   height: em(75);
-  margin-bottom: em(50);
+
+
+  // margin-bottom: em(50);
   // background: aqua;
   padding: em(35) 0;
+  padding-bottom: 50px;
+
   > div {
     @include outer-container;
   }
+
+  .home & {
+    margin-bottom: 35px;
+
+  }
+
+
 }
 
 .not-home {
@@ -104,12 +144,32 @@ header {
     z-index: 9999;
     height: em(85);
     // background: yellow;
+    // border-bottom: solid 1px red;
  
   }
   #ghost {
-    top: em(125);
+    top: em(84);
+    // padding-top: em(80);
+    width: 100%;
   }
 }
+
+#ghost {
+    // @include transition(background-color 5s $ease-out-quad);
+}
+
+
+
+  header.active {
+      @include transition(all 0.5s $ease-out-quad);
+    @include media($tablet-down) {
+      // left: -230px;
+    }
+      // left: -300px;
+    }
+  
+
+
 
 // Structure
 ///////////////////////////////////////////////////////////////////////////////
@@ -137,6 +197,13 @@ header {
   > h6 {
     margin-bottom: em(30);
   }
+
+}
+
+
+.home section.row:first-of-type {
+  padding-top: 0px;
+  // background: aqua;
 }
 
 // masonry
@@ -245,7 +312,22 @@ header {
 
 .item > div, .item > h6 {
   // opacity: 1;
+
   @include transition(all 0.4s $ease-in-cubic);
+
+}
+
+.item h6 {
+    opacity: 0;
+    @include transform(translateY(-5px));
+    @include transition(all 0.5s $ease-out-cubic);
+
+}
+
+.item:hover h6 {
+  opacity: 1;
+    @include transform(translateY(-0px));
+    @include transition(all 0.9s $ease-out-cubic);
 }
 
 .item:hover > div, .item:hover > h6 {
@@ -338,7 +420,7 @@ footer {
   position: fixed;
   z-index: 0000;
   left: calc(50vw - 110px);
-  background: aqua;
+  // background: aqua;
   height: 0px;
   padding: 0px !important;
   // display: none;
@@ -350,19 +432,23 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
+   // left: -300px;
   width: 100%;
   height: 100%;
   overflow: scroll;
   z-index: 99999;
-  @include transition(all 0.5s $ease-out-quad);
+  // @include transition(all 0.5s $ease-out-quad);
+
   &.active {
     @include media($tablet-down) {
       left: -230px;
     }
 
-    left: -300px;
+    @include transform(translateX(-300px));
   }
 }
+
+
 
 #intro .logo {
   @include sprite(sprite-1, 0px, 0px, 70px, 240px);
@@ -378,7 +464,7 @@ h2.logo {
   @include sprite(sprite-1, -440px, -18px, 36px, 36px);
   display: block;
   // position: relative;
-  margin-top: -7px;
+  margin-top: -11px;
 }
 
 .designers p.large {
@@ -391,15 +477,23 @@ h2.logo {
 .images {
   position: relative;
   over-flow: hidden;
-  margin-top: -10px;
+  // margin-top: -60px;
   margin-bottom: 30px;
-  height: 700px;
+  // height: 700px;
+
+  .designers & {
+      @include media($large-up) {
+        margin-top: -60px;
+      }
+  }
+
 }
 
 .images > div {
   position: absolute;
-  height: 700px;
-  height: 70vh;
+  height: 500px;
+  height: 40vh;
+  max-height: 500px;
   @include span-columns(4 of 6);
   @include shift(1);
   margin-bottom: 10px;
@@ -439,11 +533,10 @@ h2.logo {
 ///////////////////////////////////////////////////////////////////////////////
 
 .gallery {
-  background: black;
-  height: em(800);
-  margin-bottom: em(30);
+  background: aqua;
+  // height: em(800);
   > div {
-    height: em(750);
+    // height: em(750);
     @include span-columns(12 of 12);
     @include shift(0);
   }
@@ -459,11 +552,18 @@ h2.logo {
     }
   }
   .appointment {
-    margin-top: em(50);
+    // margin-top: em(50);
     margin-bottom: em(20);
     font-size: $base-font-size * 0.9;
   }
   article {
+
+
+
+    h2 {
+      padding-top: 20px;
+    }
+
     ul.social {
       margin-left: -8px;
     }
@@ -482,6 +582,15 @@ h2.logo {
   }
 }
 
+a#menu-trigger {
+left: -10px;
+position: relative;
+}
+
+.single-content {
+  margin-bottom: 50px;
+}
+
 .rsNav {
   width: auto;
   float: right;
@@ -491,6 +600,7 @@ div.rsNav.rsBullets {
   float: right;
   height: 20px;
   margin-top: 30px;
+  margin-right: 5%;
 }
 
 .rsBullet {
@@ -526,4 +636,71 @@ div.rsNav.rsBullets {
 
 }
 
+// 
 
+#guts {
+  // opacity: 0;
+  // display: none;
+}
+
+// slider
+
+#content-primary section#slider {
+  padding-bottom: 0px;
+  // position: relative;
+  display: block;
+  margin-bottom: 0px;
+}
+
+
+body {
+  background-color: black;
+}
+
+.black #content-primary {
+  background: black;
+}
+#content-primary {
+  @include transition(all 0.5s $ease-out-quad);
+}
+
+header.top {
+  position: relative;
+  top: 0px;
+  background: white;
+  z-index: 999;
+}
+
+header.active {
+  // @include transform(translateX(0px));
+}
+
+
+.collapse {
+  overflow: hidden;
+  &.hide {
+    display: none;
+  }
+}
+
+#menu-trigger {
+  opacity: 1;
+  @include transform(translateX(10px));
+
+  .not-home & {
+    opacity: 1;
+  }
+
+}
+
+#menu-trigger.active {
+   opacity: 1;
+    @include transform(translateX(-5px));
+    @include transition(all 0.8s $ease-out-quad);
+}
+
+
+header, .not-home header {
+  // background: white;
+  position: relative;
+}

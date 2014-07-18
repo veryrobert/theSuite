@@ -16,7 +16,7 @@
     <!-- endbuild -->
   </head>
 
-  <body class="home">
+  <body class="not-home">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -24,25 +24,50 @@
  
 {% include nav.html %}
 
-
-
-
-
 <div id="content-primary" class="content-primary home">
 
-<section id="intro">
 
-    <h1 class="logo">The Suite</h1>
+<div class="collapse">  
 
-</section>
- 
-  <div id="ghost">
-    {{ content }}
-  
-     {% include footer.html %}
+  <section id="intro">
+      <h1 class="logo">The Suite</h1>
+  </section>
 
-  </div>
+  <section id="slider">  
+     <div class="royalSlider heroSlider rsMinW" id="home-slider">
+          <div class="rsContent">
+              <img alt="" class="rsImg" src="assets/img/lela.jpg" height="650" width="1400">
+          </div>
+           <div class="rsContent">
+                <img alt="" class="rsImg" src="assets/img/left2.jpg" height="650" width="1400">
+          </div>
+          <div class="rsContent">
+                <img alt="" class="rsImg" src="http://www.placehold.it/1400x650/000000/ffffff">
+          </div>
+      </div>
+  </section>
+
 </div>
+
+   <header>
+      <div>
+        <a href="/"><h2 class="logo col-one"></h2></a>
+        <div class="col-six pull-right">
+          <h2 class="title pull-left">New Collection</h2>
+          <h2><a class="pull-right" href="#menu" id="menu-trigger">Menu</a></h2>
+        </div>
+      </div>
+   </header>
+   
+  <div id="guts">
+    <div id="ghost">
+    {{ content }}
+    </div>
+  </div>
+     {% include footer.html %}
+</div>
+
+
     <!--[if lte IE 8]>
       {% include scripts-ie8.html %}
     <![endif]-->
